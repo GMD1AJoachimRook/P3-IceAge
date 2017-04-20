@@ -7,6 +7,7 @@ public class MovementScript : MonoBehaviour {
     public GameObject player;
     public float moveSpeed;
     public float turnSpeed;
+    public bool animation;
 
 	void Start () {
 		
@@ -17,5 +18,14 @@ public class MovementScript : MonoBehaviour {
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * turnSpeed * Time.deltaTime);
 
         mainCamera.transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y"), 0, 0) * turnSpeed * Time.deltaTime);
+
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            animation = true;
+        }
+        else
+        {
+            animation = false;
+        }
 	}
 }

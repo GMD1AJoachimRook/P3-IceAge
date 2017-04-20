@@ -12,8 +12,9 @@ public class PickUpCard : MonoBehaviour {
 
             collision.gameObject.GetComponent<ShelterDoorOpen>().keycards.Add(gameObject);
             print("2");
-            this.GetComponent<MeshRenderer>().enabled = false;
-            this.GetComponent<BoxCollider>().enabled = false;
+            transform.position = new Vector3(0, 0, -100);
+            //this.GetComponent<MeshRenderer>().enabled = false;
+           // this.GetComponent<BoxCollider>().enabled = false;
         }
     }
 

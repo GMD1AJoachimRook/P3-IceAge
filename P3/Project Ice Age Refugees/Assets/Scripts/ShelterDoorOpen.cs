@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShelterDoorOpen : MonoBehaviour {
     public List<GameObject> keycards = new List<GameObject>();
+    public int count;
+    public int amount;
 
 
 
@@ -17,16 +19,20 @@ public class ShelterDoorOpen : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
 
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Door")
         {
-            if (keycards.Count > 2)
+            for(int i = 0; i < keycards.Count; i++)
             {
-                print("OPEN");
+                if(keycards[i].tag == "Key")
+                {
+                    count++;
+                }
             }
-            else if (keycards.Count < 2)
+            if (count>= amount)
             {
-                print("PISSOFF");
+                print("open");
             }
         }
+        count = 0;
     }
 }
